@@ -1,5 +1,4 @@
 *.class
-.ensime
-.ensime_lucene/
-project/
-target/
+.idea
+*.DS_Store
+*.iml
