@@ -1,0 +1,5 @@
+*.class
+.ensime
+.ensime_lucene/
+project/
+target/
