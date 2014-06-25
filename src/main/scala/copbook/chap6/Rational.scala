@@ -39,9 +39,26 @@ class Rational(n: Int, d:Int) {
       numer * toRational.denom + toRational.numer * denom,
       denom * toRational.denom
     )
+  def + (toInt: Int): Rational =
+    new Rational(numer + toInt * denom, denom)
+
+  def - (toRational: Rational): Rational =
+    new Rational(
+      numer * toRational.denom - toRational.numer * denom,
+      denom * toRational.denom
+    )
+  def - (toInt: Int): Rational =
+    new Rational(numer - toInt * denom, denom)
 
   def * (toRational: Rational): Rational =
     new Rational(numer * toRational.numer, denom * toRational.denom)
+  def * (toInt: Int): Rational =
+    new Rational(numer * toInt, denom)
+
+  def / (toRational: Rational): Rational =
+    new Rational(numer * toRational.denom, denom * toRational.numer)
+  def / (toInt: Int): Rational =
+    new Rational(numer, denom * toInt)
 
   override def toString = numer + "/" + denom
 

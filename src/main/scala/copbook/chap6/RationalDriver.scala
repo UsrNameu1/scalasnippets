@@ -9,5 +9,13 @@ object RationalDriver {
      println(x)
      val y = new Rational(2, 3)
      println(x + y)
+     println(x - y)
+     println(x * y)
+     println(x / y)
+     val i = 5
+     println(y * i)
+     println(y / i)
+     println(y + i)
+     println(y - i)
    }
 }
