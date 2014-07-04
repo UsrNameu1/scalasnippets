@@ -15,3 +15,17 @@ def sum(a: Int, b: Int, c: Int) = a + b + c
 val d = sum _
 val e = sum(1, _: Int, 3)
 
+var more = 1
+val addMore = (x: Int) => x + more // bind as a ref type
+addMore(10)
+
+more = 100
+addMore(23)
+
+val otherNumbers = List(-11, -10, -5, 0, 5, 10)
+var sum = 0
+
+otherNumbers.foreach(sum += _)
+
+sum
+
