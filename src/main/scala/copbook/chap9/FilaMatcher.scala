@@ -27,17 +27,18 @@ package copbook.chap9
  * Created by yad on 2014/07/06.
  */
 object FilaMatcher {
-  private def filesHere = (new java.io.File(".")).listFiles
+  private def filesHere = new java.io.File(".").listFiles
+
+  private def filesMatching(matcher: String => Boolean) =
+    for (file <- filesHere: if matcher(file.getName))
+      yield file
 
   def filesEnding(query: String) =
-    for (file <- filesHere; if file.getName.endsWith(query))
-      yield file
+    filesMatching(_.endsWith(query))
 
   def filesContaining(query: String) =
-    for (file <- filesHere; if file.getName.contains(query))
-      yield file
+    filesMatching(_.contains(query))
 
   def filesRegex(query: String) =
-    for (file <- filesHere; if file.getName.matches(query))
-      yield file
+    filesMatching(_.matches(query))
 }
