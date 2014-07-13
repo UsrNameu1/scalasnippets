@@ -37,3 +37,12 @@ containsNeg(List(1, -1, 4, -2))
 
 def containsOdd(nums: List[Int]) = nums.exists(_ % 2 == 1)
 
+def plainOldSum(x: Int, y: Int) = x + y
+plainOldSum(1, 2)
+
+def curriedSum(x: Int)(y: Int) = x + y
+curriedSum(1)(3)
+
+val onePlus = curriedSum(1) _
+onePlus(2)
+
