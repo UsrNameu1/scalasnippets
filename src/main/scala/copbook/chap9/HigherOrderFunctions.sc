@@ -30,6 +30,8 @@
 //  exists
 //}
 
+import java.io._
+
 def containsNeg(nums: List[Int]) = nums.exists(_ < 0)
 
 containsNeg(List(1, 3, 4, 5))
@@ -46,3 +48,19 @@ curriedSum(1)(3)
 val onePlus = curriedSum(1) _
 onePlus(2)
 
+def twice(op: Double => Double, x: Double) = op(op(x))
+twice(_ + 1, 5)
+
+def withPrintWriter(file: File)(op: PrintWriter => Unit) {
+  var writer = new PrintWriter(file)
+  try {
+    op(writer)
+  } finally {
+    writer.close ()
+  }
+}
+
+val file = new File("data.txt")
+withPrintWriter(file) {
+  writer => writer.println(new java.util.Date)
+}
