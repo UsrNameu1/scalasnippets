@@ -64,3 +64,25 @@ val file = new File("data.txt")
 withPrintWriter(file) {
   writer => writer.println(new java.util.Date)
 }
+
+var assertionEnabled = true
+def myAssert(predicate: () => Boolean) =
+  if (assertionEnabled && !predicate())
+    throw new AssertionError
+
+// lazy auto closure
+def byNameAssert(predicate: => Boolean) =
+  if (assertionEnabled && !predicate)
+    throw new AssertionError
+
+// eager
+def boolAssert(predicate: Boolean) =
+  if (assertionEnabled && !predicate)
+    throw new AssertionError
+
+boolAssert(4 > 1)
+
+assertionEnabled = false
+
+//boolAssert(1 / 0 == 0)  // this causes error
+byNameAssert(1 / 0 == 0)
