@@ -40,13 +40,13 @@ abstract class Element {
 //  def contents: Array[String] = conts
 //}
 
-class ArrayElement (
+final class ArrayElement (
   val contents: Array[String]
-
+) extends Element {
   override def demo() {
     println("ArrayElement's implementation invoked")
   }
-) extends Element
+}
 
 class LineElement(s: String) extends ArrayElement(Array(s)) {
   override def width = s.length
