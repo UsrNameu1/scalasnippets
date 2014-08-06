@@ -25,13 +25,31 @@
 //class Navigator
 
 package bobsrackets {
+
   package navigation {
+
     // bobsrockets.navigationパッケージ
-    class Navigator
-    package tests {
-      // bobsrockets.navigation.testsパッケージ
-      class NavigatorSuite
+    class Navigator {
+      val map = new StarMap
+    }
+
+    class StarMap
+  }
+
+//  class Ship {
+//    val nav = new navigation.
+//  }
+
+  package fleets {
+    class Fleet {
+      def addShip() {
+        new Ship
+      }
     }
   }
+
+
 }
+
+
 
