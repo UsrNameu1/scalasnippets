@@ -49,7 +49,6 @@ package bobsrackets {
     class MissionControl {
       val booster1 = new launch.Booster1
       val booster2 = new bobsrackets.launch.Booster2
-      val booster3 = new __root__.launch.Booster3
 
     }
   }
