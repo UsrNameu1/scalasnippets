@@ -49,7 +49,7 @@ def greet() {
   println("hi")
 }
 
-greet() == ()
+//greet() == ()
 def gcd (x: Long, y: Long): Long =
   if (y == 0) x else gcd(y, x % y)
 // 7.3
@@ -111,7 +111,6 @@ try {
 try {
 } finally  {
 }
-
 import java.net.URL
 import java.net.MalformedURLException
 def urlFor(path: String) =
@@ -156,7 +155,6 @@ val searchresult = searchFrom(0)
 
 //import scala.util.control.Breaks._
 //import java.io._
-
 //val in = new BufferedReader(new InputStreamReader(System.in))
 //breakable {
 //  while (true) {
@@ -167,7 +165,6 @@ val searchresult = searchFrom(0)
 
 def printMultiTable() {
   var i = 1
-
   while (i <= 10) {
     var j = 1
 

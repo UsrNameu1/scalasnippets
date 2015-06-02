@@ -26,7 +26,7 @@ package copbook.chap9
 /**
  * Created by yad on 2014/07/06.
  */
-object FilaMatcher {
+object FileMatcher {
   private def filesHere = new java.io.File(".").listFiles
 
   private def filesMatching(matcher: String => Boolean) =
