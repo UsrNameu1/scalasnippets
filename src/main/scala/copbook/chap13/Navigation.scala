@@ -68,4 +68,126 @@ package bobsrackets {
       }
     }
   }
+
+
+}
+
+package bobsdelights {
+  abstract class Fruit(
+    val name: String,
+    val color: String
+  )
+  object Fruits {
+    object Apple extends Fruit("apple", "red")
+    object Orange extends Fruit("orange", "orange")
+    object Pear extends Fruit("pear", "yellowish")
+    val menu = List(Apple, Orange, Pear)
+  }
+}
+
+import bobsdelights.Fruit
+
+import bobsdelights._
+
+import bobsdelights.Fruits._
+
+object SomeClient {
+  def showFruit(fruit: Fruit) {
+    import fruit._
+    println(name + "s are" + color)
+  }
+}
+
+import Fruits.{Apple, Orange}
+import Fruits.{Apple => Mcintosh, Orange}
+import java.sql.{Date => SDate}
+import java.{sql => S}
+import Fruits._
+import Fruits.{Apple => Mcintosh, _}
+import Fruits.{Pear => _, _}
+
+class Outer {
+  class Inner {
+    private def f() { println("f") }
+    class InnerMost {
+      f()
+    }
+
+  }
+  //(new Inner).f()
+}
+
+package p {
+  class Super {
+    protected def f(): Unit = {
+      println("f")
+    }
+  }
+  class Sub extends Super {
+    f()
+  }
+  class Other {
+    //(new Super).f()
+  }
+}
+
+package bobsrockets {
+  package navigation {
+    private[bobsrockets] class Navigator {
+      protected[navigation] def useStarChart(): Unit = {
+
+      }
+      class LegOfJourney {
+        private[Navigator] val distance = 100
+      }
+      private[this] var speed = 200
+    }
+  }
+
+  package launch {
+    import navigation._
+    object Vehicle {
+      private[launch] val guide = new Navigator
+    }
+  }
+}
+
+class Rocket {
+  import Rocket.fuel
+  private def canGoHomeAgain = fuel > 20
+}
+object Rocket {
+  private def fuel = 10
+  def chooseStrategy(rocket: Rocket): Unit = {
+    if (rocket.canGoHomeAgain)
+      goHome()
+    else
+      pickAStar()
+  }
+  def goHome(): Unit = {
+
+  }
+  def pickAStar(): Unit = {
+
+  }
+}
+
+package object bobsdelights {
+  def showFruit(fruit: Fruit): Unit = {
+    import fruit._
+    println(name + "s are" + color)
+  }
+}
+
+package printmenu {
+  import bobsdelights.Fruits
+  import bobsdelights.showFruit
+
+  object PrintMenu {
+    def main(args: Array[String]): Unit = {
+      for (fruit <- Fruits.menu) {
+        showFruit(fruit)
+      }
+    }
+  }
 }
